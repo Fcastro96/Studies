@@ -3,6 +3,7 @@ console.log(umaString);
 console.log(umaString[6]);
 console.log(umaString.charAt(6));
 console.log(umaString.concat(" ", "Feliz"));
+console.log(umaString.indexOf("t"));
 console.log(umaString.lastIndexOf("t"));
 console.log(umaString.replace("Um", "Pato"));
 console.log(umaString.length);
