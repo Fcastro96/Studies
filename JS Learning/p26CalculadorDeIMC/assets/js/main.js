@@ -10,10 +10,14 @@ form.addEventListener("submit", function (e) {
 
   if (!peso) {
     setResultado("Peso invalido", false);
+  } else if (peso <= 0) {
+    setResultado("Peso invalido", false);
     return;
   }
 
   if (!altura) {
+    setResultado("Altura invalida", false);
+  } else if (altura <= 0) {
     setResultado("Altura invalida", false);
     return;
   }
@@ -34,14 +38,29 @@ function getNivelImc(imc) {
     "Obesidade grau 1",
     "Obesidade grau 2",
     "Obesidade grau 3",
+    "Pelo amor de deus procure ajuda",
   ];
 
-  if (imc >= 39.9) return nivel[5];
-  if (imc >= 34.9) return nivel[4];
-  if (imc >= 29.9) return nivel[3];
-  if (imc >= 24.9) return nivel[2];
-  if (imc >= 18.5) return nivel[1];
-  if (imc < 18.5) return nivel[0];
+  return imc >= 44.9
+    ? nivel[6]
+    : imc >= 39.9
+    ? nivel[5]
+    : imc >= 34.9
+    ? nivel[4]
+    : imc >= 29.9
+    ? nivel[3]
+    : imc >= 24.9
+    ? nivel[2]
+    : imc >= 18.5
+    ? nivel[1]
+    : nivel[0];
+
+  // if (imc >= 39.9) return nivel[5];
+  // if (imc >= 34.9) return nivel[4];
+  // if (imc >= 29.9) return nivel[3];
+  // if (imc >= 24.9) return nivel[2];
+  // if (imc >= 18.5) return nivel[1];
+  // if (imc < 18.5) return nivel[0];
 }
 
 function getImc(peso, altura) {
